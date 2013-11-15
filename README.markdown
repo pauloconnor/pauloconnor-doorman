@@ -1,6 +1,6 @@
 # Doorman #
 
-[![Build Status](https://travis-ci.org/pauloconnor/pauloconnor-doorman.png)](https://travis-ci.org/pauloconnor/pauloconnor-doorman)
+[![Build Status](https://travis-ci.org/pauloconnor/pauloconnor-doorman.png?branch=master)](https://travis-ci.org/pauloconnor/pauloconnor-doorman)
 
 This is the doorman module. It provides Doorman which is an Oauth Proxy. This allows you to use GitHub or Google as Oauth providers to enable authentication.
 
