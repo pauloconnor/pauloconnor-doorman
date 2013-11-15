@@ -1,0 +1,89 @@
+#!/bin/bash
+# doorman        Init script for running the doorman daemon
+#
+#
+# chkconfig: - 98 02
+#
+# description: some description
+# processname: doorman
+
+PATH=/usr/bin:/sbin:/bin:/usr/sbin
+export PATH
+
+lockfile='/var/lock/subsys/doorman'
+pidfile='/var/run/doorman.pid'
+logfile='<%= $logfile %>'
+environment='production'
+node='/usr/bin/node'
+app='<%= @install_dir %>/app.js'
+
+RETVAL=0
+
+# Source function library.
+. /etc/rc.d/init.d/functions
+
+# Determine if we can use the -p option to daemon, killproc, and status.
+# RHEL < 5 can't.
+if status | grep -q -- '-p' 2>/dev/null; then
+    pidopts="-p $pidfile"
+fi
+
+start() {
+    echo -n $"Starting doorman daemon: "
+    NODE_ENV=$environment $node $app &
+    RETVAL=$?
+
+    local PID=`pgrep -f "${node} ${app}"`
+    echo $PID > ${pidfile}
+
+    echo
+        [ $RETVAL = 0 ] && touch ${lockfile}
+        return $RETVAL
+}
+
+stop() {
+    echo -n $"Stopping doorman daemon: "
+    killproc $pidopts $doorman
+    RETVAL=$?
+    echo
+    [ $RETVAL = 0 ] && rm -f ${lockfile} ${pidfile}
+}
+
+restart() {
+    stop
+    start
+}
+
+rh_status() {
+    status $pidopts $doorman
+    RETVAL=$?
+    return $RETVAL
+}
+
+rh_status_q() {
+    rh_status >/dev/null 2>&1
+}
+
+case "$1" in
+    start)
+        start
+    ;;
+    stop)
+        stop
+    ;;
+    restart)
+        restart
+    ;;
+    condrestart|try-restart)
+        rh_status_q || exit 0
+        restart
+    ;;
+    status)
+        rh_status
+    ;;
+    *)
+        echo $"Usage: $0 {start|stop|status|restart}"
+        exit 1
+esac
+
+exit $RETVAL

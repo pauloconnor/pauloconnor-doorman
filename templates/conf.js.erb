@@ -1,0 +1,37 @@
+module.exports = {
+  // port to listen on
+  port: <%= @listen_port %>,
+
+  proxyTo: {
+    host: '<%= @proxy_host %>',
+    port: <%= @proxy_port %>
+  },
+
+  sessionSecret: '<%= session_secret %>', // change me
+  // Needs a trailing slash
+  logDir: '<%= @log_dir %>', 
+  logFilename: '<%= @log_file %>',
+  logging: '<%= logging %>',
+
+  modules: {
+  <% if @github == true %>
+    // Register a new oauth app on Github at
+    // https://github.com/account/applications/new
+    github: {
+      appId: '<%= @github_app_id %>',
+      appSecret: '<%= @github_app_secret %>',
+      requiredOrganization: '<%= @github_org_name %>' // short organization name
+    }<% end %><% if (@github == true) && (@google == true) %>,<% end %>
+	
+  <% if @google == true %>
+    // Register a new oauth app on Google Apps at
+    // https://code.google.com/apis/console
+    google: {
+      appId: '<%= @google_app_id %>',
+      appSecret: '<%= @google_app_secret %>',
+      requiredDomain: '<%= @google_domain %>'
+    }
+  <% end %>
+
+  }
+};

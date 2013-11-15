@@ -1,0 +1,26 @@
+{
+  "name": "pauloconnor-doorman",
+  "author": "Paul O'Connor",
+  "description": "",
+  "license": "",
+  "project_page": "",
+  "source": "https://github.com/pauloconnor/pauloconnor-doorman",
+  "summary": "",
+  "version": "1,0",
+  "checksums": {
+    "Modulefile": "cae5ef26d69ddecc877a1e2f8f2452ff",
+    "README.markdown": "32fb5f1c01ee63f23872bf32c3aeb9a8",
+    "Rakefile": "d741e9cd36078fdeed2d9bb301b6bdcd",
+    "manifests/config.pp": "a51c35ac770f09aebd9df5beae9282f0",
+    "manifests/init.pp": "c7b51232d9bc797e4d694bde628782eb",
+    "manifests/install.pp": "ba45bef7c1f3a6f19a54cc2489d04e2b",
+    "manifests/params.pp": "d41d8cd98f00b204e9800998ecf8427e",
+    "manifests/service.pp": "05592fcbc51fb05873f95c532b8f0f78",
+    "spec/spec.opts": "a600ded995d948e393fbe2320ba8e51c",
+    "spec/spec_helper.rb": "3ea886dd135e120afa31e0aab12e85b0",
+    "templates/conf.js.erb": "b307dfa352121f437ea2f18abb75ff56",
+    "templates/etc/init.d/doorman": "0f891eb5bf3d60a046e4e2d20f26d4e5",
+    "tests/init.pp": "1e938693eb382fc13386306b1628289b"
+  },
+  "dependencies": []
+}
