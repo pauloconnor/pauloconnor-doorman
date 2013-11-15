@@ -20,9 +20,9 @@ To use, add it to your manifests:
 	  github_app_secret => 'fjdsoaf0348jffwujfdsa8ds',
 	  github_org_name   => 'pauloconnor',
 	  google            => true,
-  	google_app_id     => 'fdsafdsafdsa',
-  	google_app_secret => 'fdsafdsafdsa',
-  	google_domain     => 'google.com'
+		google_app_id     => 'fdsafdsafdsa',
+		google_app_secret => 'fdsafdsafdsa',
+		google_domain     => 'google.com'
 	}
 
 To get your access keys and secrets, register your application at GitHub and/or Google
