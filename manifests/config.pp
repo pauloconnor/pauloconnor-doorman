@@ -26,9 +26,8 @@ class doorman::config {
   $google_app_id     = $doorman::google_app_id
   $google_app_secret = $doorman::google_app_secret
   $google_domain     = $doorman::google_domain
-	
 
-  file { "$install_dir/conf.js" :
+  file { "${install_dir}/conf.js" :
     ensure   => present,
     mode     => '0644',
     owner    => 'root',
@@ -42,6 +41,6 @@ class doorman::config {
     owner    => 'root',
     group    => 'root',
     content  => template('doorman/etc/init.d/doorman'),
-    require  => File["$install_dir/conf.js"],
+    require  => File["${install_dir}/conf.js"],
   }
 }

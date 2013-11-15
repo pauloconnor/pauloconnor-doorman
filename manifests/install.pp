@@ -24,7 +24,7 @@ class doorman::install {
   }
 
   exec { 'Install doorman':
-    cwd       => "$doorman::install_dir",
+    cwd       => $doorman::install_dir,
     command   => '/usr/bin/npm install',
     require   => Package['npm'],
     unless    => '/usr/bin/test -d /usr/bin/doorman'
