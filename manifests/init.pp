@@ -12,9 +12,9 @@
 #
 class doorman(
 	$install_dir       = '/opt/doorman',
-	$log_dir 					 = '/var/log/doorman/',
-	$log_file					 = 'doorman.log',
-	$logging				 	 = 'true',
+	$log_dir           = '/var/log/doorman/',
+	$log_file          = 'doorman.log',
+	$logging           = 'true',
 	$listen_port       = 80,
 	$proxy_host        = 'localhost',
 	$proxy_port        = 8080,
