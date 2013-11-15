@@ -17,7 +17,7 @@ class doorman::install {
   }
 
   vcsrepo { $doorman::install_dir:
-    ensure    => present,
+    ensure    => latest,
     provider  => git,
     source    => 'https://github.com/pauloconnor/doorman.git',
     notify    => Exec['Install doorman'],
@@ -32,6 +32,13 @@ class doorman::install {
 
   file { '/var/log/doorman/':
     ensure  => directory,
+    mode    => '0644',
+    owner   => 'root',
+    group   => 'root',
+  }
+
+  file { "${doorman::install_dir}/log/production.log":
+    ensure  => file,
     mode    => '0644',
     owner   => 'root',
     group   => 'root',

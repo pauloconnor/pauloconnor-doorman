@@ -30,7 +30,7 @@ fi
 
 start() {
     echo -n $"Starting doorman daemon: "
-    NODE_ENV=$environment $node $app &
+    NODE_ENV=$environment $node $app 2&>1 /dev/null &
     RETVAL=$?
 
     local PID=`pgrep -f "${node} ${app}"`
