@@ -1,5 +1,5 @@
 name 'pauloconnor-doorman'
-version '0.0.1'
+version '0.0.2'
 source 'git://github.com/pauloconnor/pauloconnor-doorman.git'
 author 'Paul O\'Connor'
 summary 'Module for installing Doorman'
